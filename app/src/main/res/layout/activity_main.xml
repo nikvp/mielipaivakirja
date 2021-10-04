@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/saavutusButton"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="56dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/arviointiButton"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="56dp"
@@ -28,24 +28,14 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="150dp"
+        android:id="@+id/kalenteriButton"
+        android:layout_width="358dp"
         android:layout_height="150dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/saavutusButton" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
