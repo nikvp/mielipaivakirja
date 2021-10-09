@@ -10,11 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mielipaivakirja">
         <activity
-            android:name=".kalenteri"
-            android:parentActivityName=".MainActivity"
-            android:exported="true" />
-        <activity
-            android:name=".paiva_saavutukset"
+            android:name=".paiva_tarkastelu"
             android:parentActivityName=".MainActivity"
             android:exported="true" />
         <activity

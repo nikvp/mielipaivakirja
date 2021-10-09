@@ -8,10 +8,13 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    DataBase dataBase = new DataBase(MainActivity.this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
     public void arviointi(View view){
@@ -19,13 +22,15 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void saavutukset(View view){
-        Intent intent = new Intent(this, paiva_saavutukset.class);
+    public void tarkastele(View view){
+        Intent intent = new Intent(this, paiva_tarkastelu.class);
         startActivity(intent);
     }
 
-    public void kalenteri(View view){
-        Intent intent = new Intent(this, kalenteri.class);
-        startActivity(intent);
+
+
+    protected void onDestroy(){
+        dataBase.close();
+        super.onDestroy();
     }
 }
