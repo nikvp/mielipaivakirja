@@ -11,15 +11,20 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 import java.security.Key;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String CALENDAR_DATE = "";
+    public static final String DATABASE_NAME = "";
     DataBase dataBase;
     CalendarView calendarView;
     String currentDate = "";
     TextView tv;
     private Object Key;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         calendarView.setDate(System.currentTimeMillis());
         tv = findViewById(R.id.paivakirjaIndicator);
         calendarSetup();
+        currentDate = sdf.format(new Date(calendarView.getDate()));
+
 
     }
 
@@ -40,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 currentDate = i2 + "/" + (i1 + 1) + "/" + i;
-
             }
         });
     }
@@ -48,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     public void arviointi(View view){
         Intent intent = new Intent(this, paivakirja_luonti.class);
         intent.putExtra(CALENDAR_DATE, currentDate);
+        intent.putExtra(DATABASE_NAME, dataBase.getDatabaseName());
         startActivity(intent);
     }
 
