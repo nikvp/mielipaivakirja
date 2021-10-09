@@ -10,13 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Mielipaivakirja">
         <activity
-            android:name=".paiva_tarkastelu"
+            android:name=".paiva_muistio"
+            android:parentActivityName=".paivakirja_luonti"
+            android:exported="true" />
+        <activity
+            android:name=".paivakirja_luonti"
             android:parentActivityName=".MainActivity"
             android:exported="true" />
         <activity
+            android:name=".paiva_tarkastelu"
+            android:exported="true"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".paiva_arviointi"
-            android:parentActivityName=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".paivakirja_luonti" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
