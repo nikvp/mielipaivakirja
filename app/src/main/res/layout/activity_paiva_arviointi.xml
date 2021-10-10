@@ -6,4 +6,172 @@
     android:layout_height="match_parent"
     tools:context=".paiva_arviointi">
 
+    <TextView
+        android:id="@+id/textViewKysymys"
+        android:layout_width="280dp"
+        android:layout_height="53dp"
+        android:text="@string/hei_kuinka_p_iv_si_on_mennyt"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.067" />
+
+    <ImageView
+        android:id="@+id/imageViewHappy"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+        android:contentDescription="@string/happy_emoji"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKysymys"
+        app:layout_constraintVertical_bias="0.018"
+        app:srcCompat="@drawable/external_content_duckduckgo_com" />
+
+    <ImageView
+        android:id="@+id/imageViewSad"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+        android:contentDescription="@string/sad_emoji"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKysymys"
+        app:layout_constraintVertical_bias="0.018"
+        app:srcCompat="@drawable/external_content_duckduckgo_com1" />
+
+    <ScrollView
+        android:id="@+id/scrollViewArviointi"
+        android:layout_width="408dp"
+        android:layout_height="352dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewKysymys">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewAhdistunut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/olen_ollut_ahdistunut" />
+
+            <SeekBar
+                android:id="@+id/seekBarAhdistunut"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:max="100"
+                android:progress="50" />
+
+            <TextView
+                android:id="@+id/textViewSurullinen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/olen_ollut_surullinen" />
+
+            <SeekBar
+                android:id="@+id/seekBarSurullinen"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:max="100"
+                android:progress="50" />
+
+            <TextView
+                android:id="@+id/textViewVapaaAika"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/en_ollut_tyytyv_inen_vapaa_ajan_toimintaani" />
+
+            <SeekBar
+                android:id="@+id/seekBarVapaaAika"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:max="100"
+                android:progress="50" />
+
+            <TextView
+                android:id="@+id/textViewElama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/en_ole_nauttinut_el_m_st" />
+
+            <SeekBar
+                android:id="@+id/seekBarElama"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:max="100"
+                android:progress="50" />
+
+            <TextView
+                android:id="@+id/textViewYstavat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/koin_ett_minulla_ei_ole_yst_vi" />
+
+            <SeekBar
+                android:id="@+id/seekBarYstavat"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:max="100"
+                android:progress="50" />
+
+            <TextView
+                android:id="@+id/textViewStressi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/olen_ollut_stressaantunut" />
+
+            <SeekBar
+                android:id="@+id/seekBarStressi"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:max="100"
+                android:progress="50" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textViewPositive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/en_lainkaan"
+        app:layout_constraintBottom_toTopOf="@+id/scrollViewArviointi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.138"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewHappy"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <TextView
+        android:id="@+id/textViewNegative"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/koko_ajan"
+        app:layout_constraintBottom_toTopOf="@+id/scrollViewArviointi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.77"
+        app:layout_constraintStart_toEndOf="@+id/textViewPositive"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewSad"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollViewArviointi" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
