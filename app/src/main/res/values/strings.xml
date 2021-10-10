@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">mielipaivakirja</string>
+    <string name="olen_ollut_ahdistunut">Olen ollut ahdistunut</string>
+    <string name="koin_ett_minulla_ei_ole_yst_vi">Koin että minulla ei ole ystäviä</string>
+    <string name="en_ole_nauttinut_el_m_st">En ole nauttinut elämästä</string>
+    <string name="en_ollut_tyytyv_inen_vapaa_ajan_toimintaani">En ollut tyytyväinen vapaa-ajan toimintaani</string>
+    <string name="olen_ollut_surullinen">Olen ollut surullinen</string>
+    <string name="olen_ollut_stressaantunut">Olen ollut stressaantunut</string>
+    <string name="en_lainkaan">En lainkaan</string>
+    <string name="submit">Submit</string>
+    <string name="hei_kuinka_p_iv_si_on_mennyt">Hei! Kuinka päiväsi on mennyt?</string>
+    <string name="koko_ajan">Koko ajan</string>
+    <string name="happy_emoji">Happy emoji</string>
+    <string name="sad_emoji">Sad emoji</string>
 </resources>
