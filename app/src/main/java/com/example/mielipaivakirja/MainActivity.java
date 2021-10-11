@@ -18,7 +18,6 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity {
 
     public static final String CALENDAR_DATE = "";
-    public static final String DATABASE_NAME = "";
     DataBase dataBase;
     CalendarView calendarView;
     String currentDate = "";
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     public void arviointi(View view){
         Intent intent = new Intent(this, paivakirja_luonti.class);
         intent.putExtra(CALENDAR_DATE, currentDate);
-        intent.putExtra(DATABASE_NAME, dataBase.getDatabaseName());
         startActivity(intent);
     }
 
