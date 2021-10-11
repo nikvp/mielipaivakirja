@@ -13,7 +13,6 @@ public class paivakirja_luonti extends AppCompatActivity {
 
 
     private String date;
-    private String database;
     DataBase dataBase;
     TextView pvm;
     @Override
@@ -24,7 +23,7 @@ public class paivakirja_luonti extends AppCompatActivity {
         date = intent.getStringExtra(MainActivity.CALENDAR_DATE);
         pvm = findViewById(R.id.paivamaara);
         pvm.setText(date);
-        database = intent.getStringExtra(MainActivity.DATABASE_NAME);
+
 
     }
 
