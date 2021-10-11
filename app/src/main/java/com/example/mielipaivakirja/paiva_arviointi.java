@@ -3,43 +3,54 @@ package com.example.mielipaivakirja;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class paiva_arviointi extends AppCompatActivity {
 
     SeekBar one;
     SeekBar two;
     SeekBar three;
-    TextView top;
-    TextView mid;
-    TextView bot;
-
+    SeekBar four;
+    SeekBar five;
+    SeekBar six;
+    int valueOne;
+    int valueTwo;
+    int valueThree;
+    int valueFour;
+    int valueFive;
+    int valueSix;
+    ArrayList<Integer> arvot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paiva_arviointi);
-        one = findViewById(R.id.seekBar1);
-        two = findViewById(R.id.seekBar2);
-        three = findViewById(R.id.seekBar3);
-
+        one = findViewById(R.id.seekBarAhdistunut);
+        two = findViewById(R.id.seekBarSurullinen);
+        three = findViewById(R.id.seekBarVapaaAika);
+        four = findViewById(R.id.seekBarElama);
+        five = findViewById(R.id.seekBarYstavat);
+        six = findViewById(R.id.seekBarStressi);
         seekbarOne();
         seekbartwo();
         seekbarthree();
-
-        top = findViewById(R.id.textViewtop);
-        mid = findViewById(R.id.textViewmid);
-        bot = findViewById(R.id.textViewbot);
+        seekbarfour();
+        seekbarfive();
+        seekbarsix();
     }
 
-    public void seekbarOne(){
+    private void seekbarOne(){
         one.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int prog, boolean b) {
-                top.setText(String.valueOf(prog));
+                valueOne = prog;
             }
 
             @Override
@@ -54,11 +65,11 @@ public class paiva_arviointi extends AppCompatActivity {
         });
     }
 
-    public void seekbartwo(){
+    private void seekbartwo(){
         two.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                mid.setText(String.valueOf(i));
+                valueTwo = i;
             }
 
             @Override
@@ -73,11 +84,11 @@ public class paiva_arviointi extends AppCompatActivity {
         });
     }
 
-    public void seekbarthree(){
+    private void seekbarthree(){
         three.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                bot.setText(String.valueOf(i));
+                valueThree = i;
             }
 
             @Override
@@ -92,15 +103,74 @@ public class paiva_arviointi extends AppCompatActivity {
         });
     }
 
-    private void haeKeskiarvo(){
-        int keskiarvo = (one.getProgress() + two.getProgress() + three.getProgress())/3;
+    private void seekbarfour(){
+        four.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                valueFour = i;
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+    private void seekbarfive(){
+        five.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                valueFive = i;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
-    public void save(View view){
-        haeKeskiarvo();
+    private void seekbarsix(){
+        six.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                valueSix = i;
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+
+
+    public void save(View view){
+        arvot.clear();
+        arvot.add(valueOne);
+        arvot.add(valueTwo);
+        arvot.add(valueThree);
+        arvot.add(valueFour);
+        arvot.add(valueFive);
+        arvot.add(valueSix);
         Intent intent = new Intent(this, paivakirja_luonti.class);
+        intent.putExtra("PAIVA_ARVIO", arvot);
         startActivity(intent);
     }
 }

@@ -38,8 +38,8 @@ public class DataBase extends SQLiteOpenHelper {
     public boolean addData(paivakirja paivakirja){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(arviointiKA, paivakirja.getArviointi());
         cv.put(DATE, paivakirja.getPaivamaara());
+        cv.put(arviointiKA, paivakirja.getArviointi());
         cv.put(COLUMN_MUISTIO, paivakirja.getSaavutukset());
 
         long insert = db.insert(paivakirja_table, null, cv);
@@ -73,6 +73,15 @@ public class DataBase extends SQLiteOpenHelper {
         return palautus;
     }
 
+    public paivakirja viimeisinTallennus(){
+        List<paivakirja> list = tuoPaivakirjat();
+        if(list.size()>0){
+            paivakirja palautus = list.get(list.size());
+            return palautus;
+        }
+        return null;
+    }
+
     public boolean deletePaivamaara(paivakirja pvkirja){
         SQLiteDatabase db = this.getWritableDatabase();
         String querystring = "DELETE FROM " + paivakirja_table + " WHERE " + DATE + " = " + pvkirja.getPaivamaara();
@@ -84,16 +93,40 @@ public class DataBase extends SQLiteOpenHelper {
         }
     }
 
-    public boolean deleteMuistio(paivakirja pvkirja){
+    public boolean addArvio(paivakirja pvkirja, int arvio){
         SQLiteDatabase db = this.getWritableDatabase();
-        String uusiMuistio = pvkirja.getSaavutukset();
         ContentValues cv = new ContentValues();
-        cv.put(COLUMN_MUISTIO, uusiMuistio);
+        cv.put(arviointiKA, arvio);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + paivakirja_table + " WHERE " + DATE + " =?", new String[] {pvkirja.getPaivamaara()});
+        if(cursor.getCount()>0){
+            long result = db.update(paivakirja_table, cv, DATE + " =?", new String[] {pvkirja.getPaivamaara()} );
+            if(result ==-1){
+                return false;
+            }
+            else{
+                return true;
+            }
+        } else {
+            return false;
+        }
 
+    }
 
-
-
-
-        return false;
+    public boolean addMuistio(paivakirja pvkirja, String muistio){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_MUISTIO, muistio);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + paivakirja_table + " WHERE " + DATE + " =?", new String[] {pvkirja.getPaivamaara()});
+        if(cursor.getCount()>0){
+            long result = db.update(paivakirja_table, cv, DATE + " =?", new String[] {pvkirja.getPaivamaara()} );
+            if(result ==-1){
+                return false;
+            }
+            else{
+                return true;
+            }
+        } else {
+            return false;
+        }
     }
 }

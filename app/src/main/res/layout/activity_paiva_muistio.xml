@@ -3,7 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".paiva_muistio">
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/kysymys"
+        android:layout_width="258dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="60dp"
+        android:text="Muita ajatuksia?"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="298dp"
+        android:layout_height="475dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Kirjoita tähän"
+        android:inputType="textMultiLine"
+        android:lineSpacingExtra="8sp"
+        android:textAlignment="viewStart"
+        android:textSize="20sp"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kysymys" />
+
+    <Button
+        android:id="@+id/tallennusButton"
+        android:layout_width="185dp"
+        android:layout_height="59dp"
+        android:onClick="tallennaMuistio"
+        android:text="Tallenna"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
