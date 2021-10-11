@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/blatt/AndroidStudioProjects/mielipaivakirja/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/dsihv/AndroidStudioProjects/mielipaivakirja/app/src/main/res/drawable/external_content_duckduckgo_com.xml" value="0.14947916666666666" />
+        <entry key="..\:/Users/dsihv/AndroidStudioProjects/mielipaivakirja/app/src/main/res/drawable/external_content_duckduckgo_com1.xml" value="0.14947916666666666" />
         <entry key="..\:/Users/dsihv/AndroidStudioProjects/mielipaivakirja/app/src/main/res/layout/activity_main.xml" value="0.259375" />
-        <entry key="..\:/Users/dsihv/AndroidStudioProjects/mielipaivakirja/app/src/main/res/layout/activity_paiva_arviointi.xml" value="0.259375" />
+        <entry key="..\:/Users/dsihv/AndroidStudioProjects/mielipaivakirja/app/src/main/res/layout/activity_paiva_arviointi.xml" value="0.264" />
       </map>
     </option>
   </component>
