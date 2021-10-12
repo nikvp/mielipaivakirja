@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -13,26 +14,31 @@ import java.util.List;
 
 public class DataBase extends SQLiteOpenHelper {
 
-    public static final String paivakirja_table = "PAIVAKIRJA_TABLE";
-    public static final String arviointiKA = "ARVIOINTI_KESKIARVO";
-    public static final String COLUMN_MUISTIO = "MUISTIO";
-    public static final String DATE = "DATE";
+    private static final String paivakirja_table = "PAIVAKIRJA_TABLE";
+    private static final String arviointiKA = "ARVIOINTI_KESKIARVO";
+    private static final String COLUMN_MUISTIO = "MUISTIO";
+    private static final String DATE = "DATE";
+    private Context context;
 
     public DataBase(@Nullable Context context) {
         super(context, "paivakirjat.db", null, 1);
+        this.context = context;
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String createTableStatement = "CREATE TABLE " + paivakirja_table + " (" + DATE + " STRING PRIMARY KEY, " +
-                arviointiKA + " INT, " + COLUMN_MUISTIO + " STRING)";
+        String createTableStatement = "CREATE TABLE " + paivakirja_table +
+                " (" + DATE + " STRING PRIMARY KEY, " +
+                arviointiKA + " INT, " +
+                COLUMN_MUISTIO + " STRING);";
         sqLiteDatabase.execSQL(createTableStatement);
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("DROP TABLE IF EXISTS " + paivakirja_table);
+        onCreate(db);
     }
 
     public boolean addData(paivakirja paivakirja){
@@ -44,8 +50,10 @@ public class DataBase extends SQLiteOpenHelper {
 
         long insert = db.insert(paivakirja_table, null, cv);
         if(insert == -1){
+            Toast.makeText(context, "Lisääminen epäonnistui", Toast.LENGTH_SHORT).show();
             return false;
         } else {
+            Toast.makeText(context, "Lisätty", Toast.LENGTH_SHORT).show();
             return true;
         }
     }

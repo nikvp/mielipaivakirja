@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class paivakirja {
     private String paivamaara;
-    private ArrayList<Integer> arviointi;
-    private ArrayList<String> saavutukset;
+    private int arviointi;
+    private String saavutukset;
 
     public paivakirja(){
     }
 
     public  paivakirja(String paivamaara, int arviointi, String muistio){
         this.paivamaara = paivamaara;
-        this.arviointi.add(arviointi);
-        this.saavutukset.add(muistio);
+        this.arviointi = arviointi;
+        this.saavutukset = muistio;
     }
 
     public String toString(){
@@ -25,44 +25,11 @@ public class paivakirja {
     }
 
     public int getArviointi(){
-        int summa = 0;
-        int keskiarvo;
-        for(int i = 0; i < arviointi.size(); i++){
-            summa += arviointi.get(i);
-        }
-        keskiarvo = summa / arviointi.size();
-        return keskiarvo;
+        return arviointi;
     }
 
     public String getSaavutukset(){
-        String text = null;
-        for(int i = 0; i < saavutukset.size(); i++){
-            if (i == 0){
-                text = saavutukset.get(i);
-            } else {
-                text += "\n" + saavutukset.get(i);
-            }
-        }
-        return text;
+        return saavutukset;
     }
 
-    public void changePaivamaara(String uusiPvm){
-        this.paivamaara = uusiPvm;
-    }
-
-    public void addArviointi(int uusiarvo){
-        this.arviointi.add(uusiarvo);
-    }
-
-    public void addSaavutukset(String uusisaavutus){
-        this.saavutukset.add(uusisaavutus);
-    }
-
-    public void deleteArviointi(int i){
-        this.arviointi.remove(i);
-    }
-
-    public void deleteSaavutus(int i){
-        this.saavutukset.remove(i);
-    }
 }

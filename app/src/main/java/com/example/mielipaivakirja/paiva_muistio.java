@@ -23,12 +23,6 @@ public class paiva_muistio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paiva_muistio);
         editText = findViewById(R.id.editText);
-
-        muistio = getIntent().getCharSequenceExtra("PAIVA_MUISTIO");
-        if(muistio.length()>0){
-            editText.setText(muistio.toString());
-        }
-
     }
 
 

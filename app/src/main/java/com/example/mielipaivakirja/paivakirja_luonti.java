@@ -20,8 +20,7 @@ public class paivakirja_luonti extends AppCompatActivity {
 
 
     private String date;
-    private ArrayList<Integer> arvio = null;
-    private CharSequence muistio = null;
+    private float keskiarvo;
     TextView pvm;
     DataBase dataBase;
 
@@ -31,13 +30,12 @@ public class paivakirja_luonti extends AppCompatActivity {
         setContentView(R.layout.activity_paivakirja_luonti);
         dataBase = new DataBase(paivakirja_luonti.this);
         date = getIntent().getStringExtra("CALENDAR_DATE");
-        if(date.equals("")){
-            date = findLastDate();
-        }
+        keskiarvo = getIntent().getFloatExtra("PAIVA_ARVO", 0);
         pvm = findViewById(R.id.paivamaara);
         pvm.setText(date);
-        arvio = getIntent().getIntegerArrayListExtra("PAIVA_ARVIO");
-        muistio = getIntent().getCharSequenceExtra("PAIVA_MUISTIO");
+        testiToast();
+        dataBase.close();
+
     }
 
 
@@ -48,20 +46,12 @@ public class paivakirja_luonti extends AppCompatActivity {
 
     public void lisaaMuistio(View view){
         Intent intent = new Intent(this, paiva_muistio.class);
-        if(onkoMuistioTallessa()){
-            intent.putExtra("PAIVA_MUISTIO",dataBase.viimeisinTallennus().getSaavutukset());
-        }
         startActivity(intent);
     }
 
 
     public void tallenna(View view){
-        if(voikoTallentaa()){
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        } else{
-            Toast.makeText(this, "lisää vähintään arvio", Toast.LENGTH_LONG).show();
-        }
+
     }
 
     private void autoSave(){
@@ -69,14 +59,7 @@ public class paivakirja_luonti extends AppCompatActivity {
         checkMuistio(dataBase.viimeisinTallennus());
     }
     private void checkArvio(paivakirja paivakirja){
-        if(arvio.size()> 0){
-            int summa = 0;
-            for(int i = 0; i < arvio.size(); i++){
-                summa += arvio.get(i);
-            }
-            int keskiarvo = summa / arvio.size();
-            dataBase.addArvio(paivakirja, keskiarvo);
-        }
+
     }
 
     private boolean onkoMuistioTallessa(){
@@ -98,9 +81,6 @@ public class paivakirja_luonti extends AppCompatActivity {
     }
 
     private void checkMuistio(paivakirja paivakirja){
-        if(muistio.length()>0){
-            dataBase.addMuistio(paivakirja, muistio.toString());
-        }
     }
 
     private void checkSave(){
@@ -111,7 +91,6 @@ public class paivakirja_luonti extends AppCompatActivity {
                 dataBase.addData(lisattava);
             }
         }
-
     }
 
     private String findLastDate(){
@@ -131,4 +110,10 @@ public class paivakirja_luonti extends AppCompatActivity {
         }
     }
 
+    private void testiToast(){
+        if(!date.equals("")){
+            Toast.makeText(this, date + ", " + keskiarvo, Toast.LENGTH_LONG).show();
+        }
+
+    }
 }

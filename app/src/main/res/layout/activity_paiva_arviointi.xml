@@ -68,8 +68,8 @@
                 android:id="@+id/seekBarAhdistunut"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:max="100"
-                android:progress="50" />
+                android:max="10"
+                android:progress="0" />
 
             <TextView
                 android:id="@+id/textViewSurullinen"
@@ -81,8 +81,8 @@
                 android:id="@+id/seekBarSurullinen"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:max="100"
-                android:progress="50" />
+                android:max="10"
+                android:progress="0" />
 
             <TextView
                 android:id="@+id/textViewVapaaAika"
@@ -94,8 +94,8 @@
                 android:id="@+id/seekBarVapaaAika"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:max="100"
-                android:progress="50" />
+                android:max="10"
+                android:progress="0" />
 
             <TextView
                 android:id="@+id/textViewElama"
@@ -107,8 +107,8 @@
                 android:id="@+id/seekBarElama"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:max="100"
-                android:progress="50" />
+                android:max="10"
+                android:progress="0" />
 
             <TextView
                 android:id="@+id/textViewYstavat"
@@ -120,8 +120,8 @@
                 android:id="@+id/seekBarYstavat"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:max="100"
-                android:progress="50" />
+                android:max="10"
+                android:progress="0" />
 
             <TextView
                 android:id="@+id/textViewStressi"
@@ -133,8 +133,8 @@
                 android:id="@+id/seekBarStressi"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
-                android:max="100"
-                android:progress="50" />
+                android:max="10"
+                android:progress="0" />
 
         </LinearLayout>
     </ScrollView>

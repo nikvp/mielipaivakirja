@@ -26,7 +26,6 @@ public class paiva_arviointi extends AppCompatActivity {
     int valueFour;
     int valueFive;
     int valueSix;
-    ArrayList<Integer> arvot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,15 +161,9 @@ public class paiva_arviointi extends AppCompatActivity {
 
 
     public void save(View view){
-        arvot.clear();
-        arvot.add(valueOne);
-        arvot.add(valueTwo);
-        arvot.add(valueThree);
-        arvot.add(valueFour);
-        arvot.add(valueFive);
-        arvot.add(valueSix);
+        float keskiarvo = (float) (valueOne + valueTwo + valueThree + valueFour + valueFive + valueSix) / 6;
         Intent intent = new Intent(this, paivakirja_luonti.class);
-        intent.putExtra("PAIVA_ARVIO", arvot);
+        intent.putExtra("PAIVA_ARVIO", keskiarvo);
         startActivity(intent);
     }
 }
