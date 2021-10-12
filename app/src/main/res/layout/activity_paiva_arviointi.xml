@@ -19,30 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.067" />
 
-    <ImageView
-        android:id="@+id/imageViewHappy"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
-        android:contentDescription="happy_emoji"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKysymys"
-        app:layout_constraintVertical_bias="0.018" />
-
-    <ImageView
-        android:id="@+id/imageViewSad"
-        android:layout_width="50dp"
-        android:layout_height="45dp"
-        android:contentDescription="sad_emoji"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewKysymys"
-        app:layout_constraintVertical_bias="0.018" />
-
     <ScrollView
         android:id="@+id/scrollViewArviointi"
         android:layout_width="408dp"
@@ -143,25 +119,23 @@
         android:id="@+id/textViewPositive"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
         android:text="en lainkaan"
         app:layout_constraintBottom_toTopOf="@+id/scrollViewArviointi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.138"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewHappy"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textViewNegative"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
         android:text="koko ajan"
         app:layout_constraintBottom_toTopOf="@+id/scrollViewArviointi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.77"
-        app:layout_constraintStart_toEndOf="@+id/textViewPositive"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewSad"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintStart_toEndOf="@+id/textViewPositive" />
 
     <Button
         android:id="@+id/button"

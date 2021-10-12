@@ -37,7 +37,7 @@
         android:id="@+id/textView4"
         android:layout_width="230dp"
         android:layout_height="43dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="76dp"
         android:text="Lisää päivän arvio?"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -54,12 +54,13 @@
         android:onClick="lisaaArvio"
         android:text="Lisää"
         android:textSize="20sp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.241" />
 
     <TextView
         android:id="@+id/textView3"

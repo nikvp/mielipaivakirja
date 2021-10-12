@@ -57,6 +57,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void apua(View view){
+        Intent intent = new Intent(this, Paiva_Apua.class);
+        startActivity(intent);
+    }
+
 
 
     protected void onDestroy(){
