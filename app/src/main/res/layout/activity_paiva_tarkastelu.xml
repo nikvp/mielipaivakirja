@@ -25,7 +25,9 @@
                 android:id="@+id/textViewMuistio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="TextView"
+                android:layout_margin="50dp"/>
+
         </LinearLayout>
     </ScrollView>
 

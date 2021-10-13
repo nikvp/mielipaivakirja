@@ -1,35 +1,52 @@
 package com.example.mielipaivakirja;
 
-import java.util.ArrayList;
-
 public class paivakirja {
-    private String paivamaara;
-    private int arviointi;
-    private String saavutukset;
+    private String paiva;
+    private double arvio;
+    private String muistio;
 
     public paivakirja(){
     }
 
-    public  paivakirja(String paivamaara, int arviointi, String muistio){
-        this.paivamaara = paivamaara;
-        this.arviointi = arviointi;
-        this.saavutukset = muistio;
+    public paivakirja(String paiva, double arvio, String muistio){
+        this.paiva = paiva;
+        this.arvio = arvio;
+        this.muistio = muistio;
+
     }
 
-    public String toString(){
-        return this.paivamaara + "\n arvio: " + getArviointi() + "\n saavutukset: " + getSaavutukset();
+    @Override
+    public String toString() {
+        return "paivakirja{" +
+                "paiva='" + paiva + '\'' +
+                ", arvio=" + arvio +
+                ", muistio='" + muistio + '\'' +
+                '}';
     }
 
-    public String getPaivamaara(){
-        return this.paivamaara;
+
+    public String getPaiva(){
+        return this.paiva;
     }
 
-    public int getArviointi(){
-        return arviointi;
+    public double getArvio(){
+        return this.arvio;
     }
 
-    public String getSaavutukset(){
-        return saavutukset;
+    public String getMuistio(){
+        return this.muistio;
     }
 
+
+    public void addPaiva(String paiva){
+        this.paiva = paiva;
+    }
+
+    public void addArvio(double arvio){
+        this.arvio = arvio;
+    }
+
+    public void addMuistio(String muistio){
+        this.muistio = muistio;
+    }
 }

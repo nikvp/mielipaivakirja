@@ -24,16 +24,17 @@ public class MainActivity extends AppCompatActivity {
     String currentDate = "";
     TextView tv;
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    DataBase dataBase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.d("alku", "toimii 1");
         calendarView = findViewById(R.id.calendarView);
         calendarView.setDate(System.currentTimeMillis());
         tv = findViewById(R.id.paivakirjaIndicator);
         calendarSetup();
         currentDate = sdf.format(new Date(calendarView.getDate()));
+        dataBase = new DataBase(MainActivity.this);
     }
 
     private void calendarSetup(){
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
                 currentDate = i2 + "/" + (i1 + 1) + "/" + i;
+                checkForPaivakirja(currentDate);
             }
         });
     }
@@ -63,8 +65,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    protected void onDestroy(){
-        super.onDestroy();
+    private void checkForPaivakirja(String current){
+        boolean loytyy = dataBase.checkIfAllreadyExists(current);
+        if(loytyy){
+            tv.setText("Päiväkirja löytyy");
+        } else{
+            tv.setText("Päiväkirjaa ei löydy");
+        }
     }
+
+
 }

@@ -11,7 +11,9 @@
         android:theme="@style/Theme.Mielipaivakirja">
         <activity
             android:name=".Paiva_Apua"
-            android:exported="true" />
+            android:exported="true"
+            android:parentActivityName=".MainActivity"/>
+
         <activity
             android:name=".paiva_muistio"
             android:exported="true"
