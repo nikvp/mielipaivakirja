@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         calendarSetup();
         currentDate = sdf.format(new Date(calendarView.getDate()));
         dataBase = new DataBase(MainActivity.this);
+        tv.setText("");
     }
 
     private void calendarSetup(){
