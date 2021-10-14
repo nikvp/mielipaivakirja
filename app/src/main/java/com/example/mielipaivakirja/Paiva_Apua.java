@@ -6,6 +6,9 @@ import android.os.Bundle;
 
 public class Paiva_Apua extends AppCompatActivity {
 
+    /*
+    perus onCreate, kaikki tieto on laitettu designissä näytölle
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -30,6 +30,10 @@ public class paiva_arviointi extends AppCompatActivity {
     int valueSix;
     DataBase dataBase;
 
+    /*
+    onCreatessa haetaan päivämäärää, ja haetaan näytön eri widgetit koodiin
+    samalla aktivoidaan seekbar--() methodit, jotka luo onChangeListenerit slidereille
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +54,9 @@ public class paiva_arviointi extends AppCompatActivity {
         date = bundle.getString("CALENDAR_DATE");
         dataBase = new DataBase(paiva_arviointi.this);
     }
-
+    /*
+    tämä luo yhden sliderin onChangeListenerin
+     */
     private void seekbarOne(){
         one.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -69,7 +75,9 @@ public class paiva_arviointi extends AppCompatActivity {
             }
         });
     }
-
+    /*
+   tämä luo yhden sliderin onChangeListenerin
+    */
     private void seekbartwo(){
         two.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -88,7 +96,9 @@ public class paiva_arviointi extends AppCompatActivity {
             }
         });
     }
-
+    /*
+   tämä luo yhden sliderin onChangeListenerin
+    */
     private void seekbarthree(){
         three.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -107,7 +117,9 @@ public class paiva_arviointi extends AppCompatActivity {
             }
         });
     }
-
+    /*
+   tämä luo yhden sliderin onChangeListenerin
+    */
     private void seekbarfour(){
         four.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -126,6 +138,9 @@ public class paiva_arviointi extends AppCompatActivity {
             }
         });
     }
+    /*
+   tämä luo yhden sliderin onChangeListenerin
+    */
     private void seekbarfive(){
         five.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -144,7 +159,9 @@ public class paiva_arviointi extends AppCompatActivity {
             }
         });
     }
-
+    /*
+   tämä luo yhden sliderin onChangeListenerin
+    */
     private void seekbarsix(){
         six.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -164,7 +181,10 @@ public class paiva_arviointi extends AppCompatActivity {
         });
     }
 
-
+    /*
+    tämä ottaa kaikkien slidereiden arvot ja hakee niiden keskiarvon
+    sen jälkeen se avaa Databasen ja lisää annetulle päivämäärälle ArvioSarakkeeseen tämän keskiarvon
+     */
     public void lisaaArvio(){
         double keskiarvo = (float)(valueOne + valueTwo + valueThree + valueFour + valueFive + valueSix)/6;
         boolean result = dataBase.addArvio(date, keskiarvo);
@@ -175,6 +195,9 @@ public class paiva_arviointi extends AppCompatActivity {
         }
     }
 
+    /*
+    methodi vie takaisin paivakirja_luonti aktiviteettiin
+     */
     public void save(View view){
         lisaaArvio();
         Intent intent = new Intent(this, paivakirja_luonti.class);

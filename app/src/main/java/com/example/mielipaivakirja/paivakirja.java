@@ -1,13 +1,23 @@
 package com.example.mielipaivakirja;
 
 public class paivakirja {
+    /*
+    * paivakirja.class helpottaa tietojen tallennusta
+    * classi tarvitsee päivamäärän Stringinä, arvion Double ja muistion Stringinä
+    * */
     private String paiva;
     private double arvio;
     private String muistio;
 
+    /*
+    * Olio vaatii tyhjän konstruktorin, mutta sitä ei tarvitse käyttää
+    * */
     public paivakirja(){
     }
 
+    /*
+    * konstruktori, joka vaatii kaksi Stringiä ja yhden double arvon
+    * */
     public paivakirja(String paiva, double arvio, String muistio){
         this.paiva = paiva;
         this.arvio = arvio;
@@ -24,7 +34,9 @@ public class paivakirja {
                 '}';
     }
 
-
+    /*
+    * luodaan paivakirja.classin get() methodit
+     */
     public String getPaiva(){
         return this.paiva;
     }

@@ -18,6 +18,9 @@ public class paiva_muistio extends AppCompatActivity {
     TextView editText;
     DataBase dataBase;
 
+    /*
+    onCreatessa haetaan päivämäärä ja haetaan näytön editext
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,9 @@ public class paiva_muistio extends AppCompatActivity {
 
     }
 
-
+    /*
+    methodi hakee editTextin tiedot ja vie ne Databasen.addMuistio() methodin avulla tietokantaan
+     */
     private void tallennus(){
         String muistio = editText.getText().toString();
         boolean result = dataBase.addMuistio(date, muistio);
@@ -40,6 +45,10 @@ public class paiva_muistio extends AppCompatActivity {
         }
     }
 
+    /*
+    methodi vie takaisin paivakirja_luonti aktiviteettiin
+    ja aktivoi tallenuksen()
+     */
     public void tallennaMuistio(View view){
         tallennus();
         Intent intent = new Intent(this, paivakirja_luonti.class);

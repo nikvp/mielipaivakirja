@@ -18,6 +18,11 @@ public class paiva_tarkastelu extends AppCompatActivity {
     TextView arvio;
     TextView muistio;
     String date;
+    /*
+    onCreatessa haetaan widgetit ja päivämäärä
+    päivämäärä laitetaan databaseen ja haetaan sillä vastaava päiväkirja
+    päiväkirjan tiedot laitetaan sitten kolmeen Textviewhin
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

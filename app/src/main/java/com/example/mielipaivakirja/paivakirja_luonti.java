@@ -23,6 +23,10 @@ public class paivakirja_luonti extends AppCompatActivity {
     TextView pvm;
     DataBase dataBase;
 
+    /*
+    onCreatessa haetaan valittua päivämäärää ja annetaan widgeteille perusarvot jos voi
+    aktivoidaan lisaaPaivamaara()
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,24 +38,33 @@ public class paivakirja_luonti extends AppCompatActivity {
         lisaaPaivamaara(date);
     }
 
-
-    public void lisaaArvio(View view){
-        Intent intent = new Intent(this, paiva_arviointi.class);
-        intent.putExtra("CALENDAR_DATE", date);
-        startActivity(intent);
-    }
-
-    public void lisaaMuistio(View view){
-        Intent intent = new Intent(this, paiva_muistio.class);
-        intent.putExtra("CALENDAR_DATE", date);
-        startActivity(intent);
-    }
-
+    /*
+    tämä luo tyhjän paivakirjan, joka lisätään DataBaseen
+     */
     private void lisaaPaivamaara(String date){
         paivakirja uusi = new paivakirja(date, 0, "");
         dataBase.addData(uusi);
     }
 
+    /*
+    methodi vie paiva_arviointi activiteettiin
+     */
+    public void lisaaArvio(View view){
+        Intent intent = new Intent(this, paiva_arviointi.class);
+        intent.putExtra("CALENDAR_DATE", date);
+        startActivity(intent);
+    }
+    /*
+    methodi vie paiva_muistio activiteettiin
+    */
+    public void lisaaMuistio(View view){
+        Intent intent = new Intent(this, paiva_muistio.class);
+        intent.putExtra("CALENDAR_DATE", date);
+        startActivity(intent);
+    }
+    /*
+    methodi vie takaisin MainActivityyn activiteettiin
+    */
     public void tallenna(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
